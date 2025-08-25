@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="800" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title">
+  <title id="title">CPU キャラクター（可愛い女性）</title>
+  <defs>
+    <linearGradient id="skinGrad" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ffe0d6"/>
+      <stop offset="100%" stop-color="#ffd1c4"/>
+    </linearGradient>
+    <linearGradient id="hairGrad" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ff8fb2"/>
+      <stop offset="100%" stop-color="#ff6fa0"/>
+    </linearGradient>
+  </defs>
+  <!-- Body -->
+  <g id="character" transform="translate(100,100)">
+    <ellipse cx="0" cy="30" rx="42" ry="50" fill="url(#skinGrad)"/>
+    <!-- Hair -->
+    <path d="M-52,-10 C-60,-50 60,-50 52,-10 C40,-20 20,-30 0,-34 C-20,-30 -40,-20 -52,-10 Z" fill="url(#hairGrad)"/>
+    <!-- Face -->
+    <circle cx="0" cy="-8" r="26" fill="url(#skinGrad)" stroke="#f0b0c0" stroke-width="1"/>
+    <!-- Eyes -->
+    <g id="eyes" transform="translate(-8,-12)">
+      <ellipse cx="-12" cy="0" rx="6" ry="4" fill="#2b2b2b" />
+      <ellipse cx="12" cy="0" rx="6" ry="4" fill="#2b2b2b" />
+      <circle class="eye-glint left" cx="-14" cy="-1" r="1.6" fill="#fff" />
+      <circle class="eye-glint right" cx="10" cy="-1" r="1.6" fill="#fff" />
+    </g>
+    <!-- Blush -->
+    <ellipse cx="-14" cy="0" rx="4" ry="2.2" fill="#ffb6c1" opacity="0.9"/>
+    <ellipse cx="14" cy="0" rx="4" ry="2.2" fill="#ffb6c1" opacity="0.9"/>
+    <!-- Mouth -->
+    <path id="mouth" d="M-6,6 C-3,10 3,10 6,6" stroke="#b24b62" stroke-width="1.6" fill="transparent" stroke-linecap="round"/>
+    <!-- Bow accessory -->
+    <g transform="translate(36,-28)">
+      <ellipse rx="6" ry="4" fill="#ffd1e0"/>
+      <ellipse rx="6" ry="4" transform="translate(12,0)" fill="#ff90c4"/>
+      <circle cx="7" cy="0" r="3" fill="#ff6fa0"/>
+    </g>
+    <!-- CPU badge -->
+    <rect x="-22" y="58" width="44" height="18" rx="4" fill="#6fd3ff" opacity="0.95"/>
+    <text x="0" y="72" font-family="Arial, sans-serif" font-size="8" fill="#00334d" text-anchor="middle" alignment-baseline="middle">CPU</text>
+  </g>
+  <style>
+    /* simple idle animation: breathing + blinking */
+    #character { transform-origin: 100px 100px; }
+    .eye-glint { transform-origin: center; }
+    @keyframes breath { 0% { transform: translate(100px,100px) scale(1); } 50% { transform: translate(100px,100px) scale(1.02); } 100% { transform: translate(100px,100px) scale(1); } }
+    @keyframes blink { 0%,90%,100% { transform: scaleY(1); } 93% { transform: scaleY(0.12); } 95% { transform: scaleY(1); } }
+    #character { animation: breath 3.6s ease-in-out infinite; }
+    #eyes ellipse { transform-origin: center; }
+    #eyes ellipse { animation: blink 6s steps(1,end) infinite; }
+  </style>
+</svg>
